@@ -1,0 +1,113 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <script src="/static/js/navbar.js"></script>
+    
+<link rel="stylesheet" href="/static/css/register.css">
+<link rel="icon" href="/static/images/Logo%20(2).png" sizes="512x512">
+
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+
+            
+                <!-- Show when not logged in -->
+                <li><a href="/login/">Login</a></li>
+                <li><a href="/register/">Register</a></li>
+            
+        </ul>
+    </nav>
+    <main>
+        
+<div class="register-container">
+    <div class="register-card">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join SustainCred Job Portal</p>
+
+        <form method="POST" class="register-form">
+            <input type="hidden" name="csrfmiddlewaretoken" value="oiMMXvdKDREtFet7SXW9nI7RF1h1iSSMLkRFeQ2OEdo1TyvhyjWBwyyLosffd1gZ">
+
+           <!-- First Name -->
+            <div class="form-group">
+                <label for="id_first_name">First name:</label>
+                <input type="text" name="first_name" maxlength="150" id="id_first_name">
+                
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+                <label for="id_last_name">Last name:</label>
+                <input type="text" name="last_name" maxlength="150" id="id_last_name">
+                
+            </div>
+
+
+            <div class="form-group">
+                <label for="id_email">Email address:</label>
+                <input type="email" name="email" maxlength="254" id="id_email">
+                
+            </div>
+
+            <div class="form-group">
+                <label for="id_username">Username:</label>
+                <input type="text" name="username" maxlength="150" autofocus required aria-describedby="id_username_helptext" id="id_username">
+                
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="id_password1">Password:</label>
+                <input type="password" name="password1" autocomplete="new-password" required aria-describedby="id_password1_helptext" id="id_password1">
+                
+            </div>
+
+            <div class="form-group">
+                <label for="id_password2">Password confirmation:</label>
+                <input type="password" name="password2" autocomplete="new-password" required aria-describedby="id_password2_helptext" id="id_password2">
+                
+            </div>
+
+            <!-- Profile form fields -->
+            <div class="form-group">
+                <label for="id_location">Location:</label>
+                <input type="text" name="location" maxlength="80" required id="id_location">
+                
+            </div>
+
+            <div class="form-group">
+                <label for="id_country">Country:</label>
+                <input type="text" name="country" maxlength="80" required id="id_country">
+                
+            </div>
+
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+
+        <p class="login-link">Already have an account? 
+            <a href="/login/">Login</a>
+        </p>
+    </div>
+</div>
+
+    </main> 
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 Job Portal. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+    
+</body>
+</html>
+

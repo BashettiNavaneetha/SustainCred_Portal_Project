@@ -1,0 +1,33 @@
+{% extends 'navbar.html' %}
+
+{% load static %}
+{% block title %}Upload Resume{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/upload_resume.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="upload-container">
+    <h2>Upload Your Resume</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="file-input">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn-upload">Upload</button>
+    </form>
+
+    {% if success %}
+        <p class="success-message">✅ Successfully uploaded!</p>
+    {% endif %}
+
+    {% if profile.resume %}
+        <a href="{{ profile.resume.url }}" download>⬇ Download Resume</a>
+        <form method="POST" action="{% url 'delete_resume' %}" style="margin-top:10px;">
+            {% csrf_token %}
+            <button type="submit" class="btn-upload" style="background:#e63946;">❌ Delete Resume</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

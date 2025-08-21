@@ -1,0 +1,131 @@
+
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block title %}Register Page{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<link rel="icon" href="{% static 'images/Logo (2).png' %}" sizes="512x512">
+{% endblock css %}
+
+{% block content %}
+<div class="register-container">
+    <div class="register-card">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join SustainCred Job Portal</p>
+
+        <form method="POST" class="register-form">
+            {% csrf_token %}
+
+           <!-- First Name -->
+            <div class="form-group">
+                {{ user_form.first_name.label_tag }}
+                {{ user_form.first_name }}
+                {% if user_form.first_name.errors %}
+                    <div class="error-message">
+                        {% for error in user_form.first_name.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+                {{ user_form.last_name.label_tag }}
+                {{ user_form.last_name }}
+                {% if user_form.last_name.errors %}
+                    <div class="error-message">
+                        {% for error in user_form.last_name.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+
+            <div class="form-group">
+                {{ user_form.email.label_tag }}
+                {{ user_form.email }}
+                {% if user_form.email.errors %}
+                    <div class="error-message">
+                        {% for error in user_form.email.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ user_form.username.label_tag }}
+                {{ user_form.username }}
+                {% if user_form.username.errors %}
+                    <div class="error-message">
+                        {% for error in user_form.username.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+
+
+            <div class="form-group">
+                {{ user_form.password1.label_tag }}
+                {{ user_form.password1 }}
+                {% if user_form.password1.errors %}
+                    <div class="error-message">
+                        {% for error in user_form.password1.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ user_form.password2.label_tag }}
+                {{ user_form.password2 }}
+                {% if user_form.password2.errors %}
+                    <div class="error-message">
+                        {% for error in user_form.password2.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Profile form fields -->
+            <div class="form-group">
+                {{ profile_form.location.label_tag }}
+                {{ profile_form.location }}
+                {% if profile_form.location.errors %}
+                    <div class="error-message">
+                        {% for error in profile_form.location.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ profile_form.country.label_tag }}
+                {{ profile_form.country }}
+                {% if profile_form.country.errors %}
+                    <div class="error-message">
+                        {% for error in profile_form.country.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+
+        <p class="login-link">Already have an account? 
+            <a href="{% url 'login' %}">Login</a>
+        </p>
+    </div>
+</div>
+{% endblock content %}
